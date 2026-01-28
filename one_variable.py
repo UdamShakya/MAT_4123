@@ -66,6 +66,13 @@ bounding_phase()
 
 # Region elimination method 
 
+def region_elimination_method():
+    a= float(input("Enter the lower bound: "))
+    b= float(input("Enter the upper bound: "))
+    e = float(input("Enter the minimum value of error: "))
+
+    
+
 
 
 
