@@ -27,7 +27,6 @@ def bisection():
         while True:
             z=(x1+x2)/2
             if abs(Derivative(z)) < e:
-                print(f"The minimum point is in between ({x1},{x2})")
                 break
 
             if Derivative(z) < 0:
