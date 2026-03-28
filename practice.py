@@ -74,3 +74,59 @@ def interval_halving(a,b,eps):
     print(f"Minimum lies between ({a}, {b})")
 
 interval_halving(0.00001,5,0.001)
+
+
+def f_dash(x):
+    if abs(x) > 0.01:
+        delta_x= 0.01*abs(x)
+    else:
+        delta_x= 0.0001
+
+    return (function(x+delta_x) - function(x-delta_x))/(2*delta_x)
+
+def bisection (a,b, epsilon):
+    if f_dash(a)<0 and f_dash(b) > 0:
+        x1=a
+        x2=b
+        
+        while True:
+            z=(x1+x2)/2
+            if abs(f_dash(z)) < epsilon:
+                break
+            if f_dash(z) < 0:
+                x1=z
+            else:
+                x2=z
+
+        print(f"approximante minimum point is {z}")
+        print(f" Approxiamte minimum value is {function(z)}")
+
+    else:
+        print("Choose different a and b ")
+
+
+bisection(1,10,0.0001)
+
+def secant(a,b,epsiolon):
+    if f_dash(a)<0 and f_dash(b) > 0:
+        x1=a
+        x2=b
+
+        while True:
+            z= x2 -(f_dash(x2)*(x2-x1))/(f_dash(x2)-f_dash(x1))
+            if abs(f_dash(z)) < epsiolon:
+                break
+
+            if f_dash(z) < 0:
+                x1 = z
+            else:
+                x2 = z
+
+        print(f"The minimum point is {z}")
+        print(f"Approximate minimum value is {function(z)}")
+
+    else:
+        print("Choose different bounds such that the derivative at the bounds have opposite signs")
+
+        
+
